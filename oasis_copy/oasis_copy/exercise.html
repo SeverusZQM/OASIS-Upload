@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oasis - Worker Bee Wellness</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;  
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+ 
+    @font-face
+        {
+           font-family: 'Bell MT';
+           src: url('../font/bell.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: 'Malgun Gothic Semilight';
+           src: url('../font/malgunsl.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: 'Century Gothic';
+           src: url('../font/GOTHIC.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: '等线 Light';
+           src: url('../font/Dengl.ttf')format('truetype');
+          }       
+        
+        
+      header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+      header .logo {
+        flex: 1;
+      }
+      header .avatar img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      header .logo img {
+        height: 50px;
+      }
+      header nav {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-family: Malgun Gothic Semilight;
+      }
+      header nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      header nav ul li {
+        margin-right: 35px;
+      }
+
+      header nav ul li a {
+        text-decoration: none;
+        color: #2E8B57;
+      }
+        
+      header nav ul li .submenu {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        padding: 12px 16px;
+        }
+
+     header nav ul li:hover > .submenu {
+         display: block;
+        }
+        
+     header nav ul li .submenu li {
+         margin-bottom: 10px;
+        }
+        
+     header nav ul li .submenu li a {
+         display: block;
+         text-decoration: none;
+         color: #2E8B57;
+         font-weight: normal; 
+        }
+
+     header nav ul li .submenu li a:hover {
+         font-weight: bold; 
+        }
+
+      header .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      header .search-bar input {
+        padding: 5px;
+      }
+
+      header .search-bar img {
+        margin-left: 10px;
+        height: 20px;
+      }
+
+        
+        
+        
+        
+        .hero {
+            position: relative;
+            background: url('./all_pictures/exercise/exercise1.png') no-repeat center center/cover;
+            height: 600px;
+            color: white;
+            text-align: center;
+        }
+        .hero .overlay {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 55px;
+            border-radius: 10px;
+            width: 100%;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 3.0em;
+            margin-bottom: 40px;
+            color: #000;
+        }
+        .hero p {
+            margin: 10px 0 0;
+            font-size: 1.5em;
+            color: #000;
+            padding: 0 355px 0;
+            line-height: 39px;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        .section_n{
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-style:dashed;
+            border-color:#98bf21;
+        }
+        .section_n h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section_n h2 img {
+            height: 30px;
+        }
+        .section-header_n {
+            display: flex;
+            align-items: center;
+            background-color: #76c043;
+            border-radius: 70px;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 1200px;
+        }
+        .section-header_n img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .section-header_n h2 {
+            color: white;
+            margin: 0;
+        }
+        .exercises_n {
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .exercise_n {
+            text-align: center;
+            flex: 1 1 30%;
+            margin-bottom:-150px;
+        }
+        .exercise_n img {
+            max-width: 80%;
+            max-height: 50%;
+            border-radius: 10px;
+        }
+
+        .exercise_n p {
+            margin-top: 10px;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+        
+        .section_w{
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-style:dashed;
+            border-color:#98bf21;
+        }
+        .section_w h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section_w h2 img {
+            height: 30px;
+        }
+        .section-header_w {
+            display: flex;
+            align-items: center;
+            background-color: #76c043;
+            border-radius: 70px;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 1200px;
+        }
+        .section-header_w img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .section-header_w h2 {
+            color: white;
+            margin: 0;
+        }
+        .exercises_w {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .exercise_w {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            flex: 1 0. 30%;
+            margin-bottom: 0px;
+        }
+
+        .exercise_w img {
+            max-width: 60%;
+            max-height: 300px;
+            margin-left:50px; 
+            margin-right:10px;
+            margin-bottom:0px;
+        }
+        .exercise_w p {
+            width: 50%;
+            margin-top: 1;
+            margin-bottom: 1;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+        .section_l{
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-style:dashed;
+            border-color:#98bf21;
+        }
+        .section_l h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section_l h2 img {
+            height: 30px;
+        }
+        .section-header_l {
+            display: flex;
+            align-items: center;
+            background-color: #76c043;
+            border-radius: 70px;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 1200px;
+        }
+        .section-header_l img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .section-header_l h2 {
+            color: white;
+            margin: 0;
+        }
+        .exercises_l {
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .exercise_l {
+            text-align: center;
+            flex: 1 1 30%;
+            margin-bottom:-200px;
+        }
+        .exercise_l img {
+            max-width: 80%;
+            max-height: 50%;
+            border-radius: 10px;
+        }
+
+        .exercise_l p {
+            margin-top: 30px;
+            font-size: 20px;
+            margin-bottom:100;
+        }
+        .view_more {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+        .button {
+            background-color: #26B668;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 26px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #64CF95;
+        }
+        .button-container img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }       
+      footer {
+        background-color: #eee;
+        display: flex;
+        padding: 20px;
+        margin-top: 70px;
+      }
+      .footer-logo img {
+        height: 45px;
+      }
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 50px;
+      }
+      .footer-info h3,
+      .footer-info p {
+        margin: 0;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+      }
+      .footer-info p img {
+        width: 20px;
+        margin-right: 5px;
+      }
+      .footer-links {
+        display: flex;
+        align-items: flex-end;
+      }
+      .footer-links a {
+        margin: 0 10px;
+      }
+
+      footer .footer-links img {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="LOGO.png" alt="Oasis Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li>
+              <a href="#"><strong>Categories&nbsp;&#9660;</strong></a>
+               <ul class="submenu">
+                 <li><a href="food.html">Diet&nbsp;&amp;&nbsp;Health </a></li>
+                 <li><a href="exercise.html">Exercise</a></li>
+                 <li><a href="mental.html">Mental</a></li>
+               </ul>
+          </li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Consult</a></li>
+        </ul>
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <img src="SEARCH.png" alt="Search Icon" />
+        </div>
+      </nav>
+      <div class="avatar">
+        <a href="login.html">
+          <img src="AVATAR.png" alt="Oasis Avatar" />
+        </a>
+      </div>
+    </header>
+
+      
+    <div class="hero">
+        <div class="overlay">
+            <h1>Light Exercise in the Office</h1>
+            <p>Some simple, equipment-free exercises that you can start anytime, anywhere. These are suitable for you to do during brief breaks in your workday.</p>
+        </div>
+    </div>
+      
+      
+    <div class="content">
+        <div class="section_n">
+            <div class="section-header_n">
+                <img src="./all_pictures/exercise/s-neck.png" alt="Neck Icon">
+                <h2>Neck</h2>
+            </div>
+            <div class="exercises_n">
+                <div class="exercise_n">
+                    <img src="./all_pictures/exercise/neck-1.jpg" alt="Looking at Alternate Sides">
+                    <p><strong>Looking at Alternate Sides</strong></p>
+                </div>
+                <div class="exercise_n">
+                    <img src="./all_pictures/exercise/neck-2.jpg" alt="Neck Stretch">
+                    <p><strong>Neck Stretch</strong></p>
+                </div>
+                <div class="exercise_n">
+                    <img src="./all_pictures/exercise/neck-3.jpg" alt="Looking Up and Down">
+                    <p><strong>Looking Up and Down</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="section_w">
+            <div class="section-header_w">
+                <img src="./all_pictures/exercise/s-waist.png" alt="Waist Icon">
+                <h2>Waist</h2>
+            </div>
+            <div class="exercises_w">
+                <div class="exercise_w">
+                    <img src="./all_pictures/exercise/waist-1.png" alt="Upper Body Rotation">
+                    <p><strong>Upper Body Rotation</strong></p>
+                </div>
+                <div class="exercise_w">
+                    <img src="./all_pictures/exercise/waist-2.png" alt="Side Bend & Standing Position">
+                    <p><strong>Side Bend & Standing Position</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="section_l">
+            <div class="section-header_l">
+                <img src="./all_pictures/exercise/s-legs.png" alt="Legs Icon">
+                <h2>Legs</h2>
+            </div>
+            <div class="exercises_l">
+                <div class="exercise_l">
+                    <img src="./all_pictures/exercise/legs-1.png" alt="Swing Leg Back and Forth">
+                    <p><strong>Swing Leg Back and Forth</strong></p>
+                </div>
+                <div class="exercise_l">
+                    <img src="./all_pictures/exercise/legs-2.png" alt="Seated Hamstring Stretch">
+                    <p><strong>Seated Hamstring Stretch</strong></p>
+                </div>
+                <div class="exercise_l">
+                    <img src="./all_pictures/exercise/legs-3.png" alt="Upper Leg-Cross Stretch">
+                    <p><strong>Upper Leg-Cross Stretch</strong></p>
+                </div>
+            </div>
+        </div> 
+         <section class="view_more">
+             <div class="button-container">
+                 <img src="./all_pictures/mental/reminder.png" alt="view more Icon">
+                 <button type="button" class="button">
+                     <span>View More</span>
+                 </button>
+            </div>
+        </section> 
+      
+      
+      
+    <footer>
+      <div class="footer-logo">
+        <img src="LOGO.png" alt="Oasis Logo" />
+        <p style="font-size: 20px; font-family: Century Gothic">One-stop-shop butler for worker bee wellness.</p>
+      </div>
+      <div style="flex: 1; text-align: center; margin-top: 110px">
+        ©️2024 Oasis All rights reserved
+      </div>
+      <div class="footer-info">
+        <h3>Quick Links</h3>
+        <a href="#"><p>About Us</p></a>
+        <a href="#"><p>Categories</p></a>
+      </div>
+      <div class="footer-info">
+        <h3>Contact Info</h3>
+        <p><img src="phone.png" />+852 5660 1234</p>
+        <p><img src="email.png" />oasis@example.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="#"><img src="facebookicon.png" alt="Facebook Icon" /></a>
+        <a href="#"><img src="ins.png" alt="Instagram Icon" /></a>
+        <a href="#"><img src="twitter.png" alt="Twitter Icon" /></a>
+      </div>
+    </footer>
+  </body>
+</html>

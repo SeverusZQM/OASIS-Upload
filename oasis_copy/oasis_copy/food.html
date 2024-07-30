@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oasis - Worker Bee Wellness</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;  
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+ 
+    @font-face
+        {
+           font-family: 'Bell MT';
+           src: url('./font/bell.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: 'Malgun Gothic Semilight';
+           src: url('./font/malgunsl.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: 'Century Gothic';
+           src: url('./font/GOTHIC.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: '等线 Light';
+           src: url('./font/Dengl.ttf')format('truetype');
+          }       
+        
+        
+      header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+      header .logo {
+        flex: 1;
+      }
+      header .avatar img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      header .logo img {
+        height: 50px;
+      }
+      header nav {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-family: Malgun Gothic Semilight;
+      }
+      header nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      header nav ul li {
+        margin-right: 35px;
+      }
+
+      header nav ul li a {
+        text-decoration: none;
+        color: #2E8B57;
+      }
+
+      header .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      header .search-bar input {
+        padding: 5px;
+      }
+        
+      header nav ul li .submenu {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        padding: 12px 16px;
+        }
+
+     header nav ul li:hover > .submenu {
+         display: block;
+        }
+        
+     header nav ul li .submenu li {
+         margin-bottom: 10px;
+        }
+        
+     header nav ul li .submenu li a {
+         display: block;
+         text-decoration: none;
+         color: #2E8B57;
+         font-weight: normal; 
+        }
+
+     header nav ul li .submenu li a:hover {
+         font-weight: bold; 
+        }
+
+      header .search-bar img {
+        margin-left: 10px;
+        height: 20px;
+      }
+
+        
+        
+         .hero {
+            position: relative;
+            background: url('./all_pictures/food/FOODPOST.png') no-repeat center center/cover;
+            height: 600px;
+            color: white;
+            text-align: center;
+        }
+        .hero .overlay {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 75px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .hero p {
+                        margin: 0;
+            font-size: 3.3em;
+            margin-bottom: 40px;
+            color: #000;
+        }
+        .hero h1 {
+            margin: 10px 0 0;
+            font-size: 2.0em;
+            color: #548B54;
+            padding: 0 355px 0;
+            line-height: 39px;
+        }               
+        
+        .section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #9acd32;
+            border-radius: 50px;
+            margin-right: 280px;
+            margin-left: 280px; 
+            display: flex;
+        }
+        .section img {
+            border-radius: 10px;
+        }
+        .section h2 {
+            color: #4CAF50;
+        }
+        .section div {
+            margin: 20px 50px 0;
+            font-size: 29px;
+            
+            font-family: Bell MT;
+        }
+        
+      
+        
+        
+        
+        
+        .seasonal-adjustments {
+            display: flex;
+            align-items: center;
+            background-color: #e3f2d9;
+            padding: 10px;
+            border-radius: 50px;
+            color: white;
+            margin: 30px 290px 0;
+        }
+        .seasonal-adjustments img {
+            width: 130px;
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+        .seasonal-adjustments div {
+            flex: 1;
+        }  
+        .seasonal-adjustments h2 {
+            color: black;
+            font-size: 35px;
+        }           
+        .seasonal-adjustments p {
+            color: black;
+            text-align: justify;
+            margin-right: 80px;
+            font-size: 17px;
+            line-height: 24px;
+        }           
+              
+        
+      footer {
+        background-color: #eee;
+        display: flex;
+        padding: 20px;
+        margin-top: 70px;
+      }
+      .footer-logo img {
+        height: 45px;
+      }
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 50px;
+      }
+      .footer-info h3,
+      .footer-info p {
+        margin: 0;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+      }
+      .footer-info p img {
+        width: 20px;
+        margin-right: 5px;
+      }
+      .footer-links {
+        display: flex;
+        align-items: flex-end;
+      }
+      .footer-links a {
+        margin: 0 10px;
+      }
+
+      footer .footer-links img {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./all_pictures/LOGO.png" alt="Oasis Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li>
+              <a href="#"><strong>Categories&nbsp;&#9660;</strong></a>
+               <ul class="submenu">
+                 <li><a href="food.html">Diet&nbsp;&amp;&nbsp;Health </a></li>
+                 <li><a href="exercise.html">Exercise</a></li>
+                 <li><a href="mental.html">Mental</a></li>
+               </ul>
+          </li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Consult</a></li>
+        </ul>
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <img src="./all_pictures/SEARCH.png" alt="Search Icon" />
+        </div>
+      </nav>
+      <div class="avatar">
+        <a href="login.html">
+          <img src="AVATAR.png" alt="Oasis Avatar" />
+        </a>
+      </div>
+    </header>     
+       <div class="hero">
+        <div class="overlay">
+            <p><b>A Universal Formula </b> for lunch box combinations :</p>
+            <h1><img src="./all_pictures/food/veg.png" height="50" width="50" /> <i>Vegetables & Fruit  </i>+
+            <img src="./all_pictures/food/proteinicon.png" height="50" width="50" /><i>Protein</i> + <img src="./all_pictures/food/carbs.png" height="50" width="50" /><i>Carbs</i> +   <img src="./all_pictures/food/season.png" height="50" width="50" /><i>Seasonings</i></h1>
+        </div>
+    </div>  
+      
+ 
+        <section class="section">
+            <img src="./all_pictures/food/vefruit-1.png" height=250px alt="Vegetables & Fruits">
+            <div>
+            <p><strong>Vegetables</strong> like lettuce, broccoli, and carrots can provide abundant dietary fiber, vitamins, and minerals. You can choose stir-frying or cold tossing as the cooking method, which can not only retain the nutrients but also enhance the textural layers.</p>
+            <p><strong>Fruits</strong> like blueberries and pineapples are rich in vitamin C and antioxidants; bananas and oranges are good sources of potassium and B vitamins; dragonfruit and apples can provide abundant dietary fiber. Pairing with fruit salad can make the taste more refreshing and crisp.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <img src="./all_pictures/food/protein.png" height=250px alt="Protein">
+            <div>
+            <p>Salmon is rich in omega-3 fatty acids, which are beneficial for cardiovascular health; eggs and lean meat provide high-quality protein, which helps with muscle synthesis and repair, fish and shrimp are also excellent sources of marine-based protein.</p>
+            <p>Salmon can be simply pan-fried or roasted to maintain the tender and juicy texture. <strong>Eggs</strong> can be fried, boiled, or scrambled according to personal preference, and can also be made into leaf-tea eggs or salted eggs to retain a rich and thick mouthfeel. Beef and chicken can be sliced or minced, stir-fried into meat cubes or meat sauce, and paired with other ingredients. Fish fillets and shrimp are suitable for steaming or stir-frying.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <img src="./all_pictures/food/carbohydrate.png" height=250px  alt="Carbs">
+            <div>
+            <p>Complex carbohydrates like mixed grain rice and quinoa can help stabilize blood sugar levels for a longer duration. Sweet potatoes and pumpkins are rich in nutrients like Vitamin A. These ingredients not only provide energy, but also increase the feeling of fullness in the meals.</p>
+                </div>
+        </section>
+
+        <section class="section">
+            <img src="./all_pictures/food/condiments.png" height=250px alt="Seasonings">
+            <div>
+            <p>Ingredients like olive oil, flaxseed oil, salt, black pepper, and chopped parsley can be used for seasoning. Proper seasoning can help accentuate the natural flavors of the ingredients and enhance the overall taste.</p>
+                </div>
+        </section>
+
+        <section class="seasonal-adjustments">
+            <img src="./all_pictures/food/reminder.png" alt="Seasonal Adjustments Icon">
+            <div>
+                <h2>Seasonal Adjustments</h2>
+                <p><strong>Spring:</strong> Seasonal vegetables like chives and young bamboo shoots can be stir-fried or tossed in a cold dish to maintain a fresh taste. Fruits like strawberries and bayberries can be good choices.</p>
+                <p><strong>Summer:</strong> Seasonal vegetables like eggplant and corn can be good options. Refreshing and juicy fruits like watermelon and pomelo can be selected.</p>
+                <p><strong>Autumn:</strong> Seasonal vegetables like yam and chestnuts can be paired, roasted or stewed to enhance the soft and sweet mouthfeel. Autumn pears can be a good fruit choice.</p>
+                <p><strong>Winter:</strong> Seasonal vegetables like endives and Chinese broccoli can be paired with warm and comforting stewing or baking methods. Citrus fruits like oranges and pomelos can be good choices.</p>
+            </div>
+        </section>
+      
+      
+    <footer>
+      <div class="footer-logo">
+        <img src="./all_pictures/LOGO.png" alt="Oasis Logo" />
+        <p style="font-size: 20px; font-family: Century Gothic">One-stop-shop butler for worker bee wellness.</p>
+      </div>
+      <div style="flex: 1; text-align: center; margin-top: 110px">
+        ©️2024 Oasis All rights reserved
+      </div>
+      <div class="footer-info">
+        <h3>Quick Links</h3>
+        <a href="#"><p>About Us</p></a>
+        <a href="#"><p>Categories</p></a>
+      </div>
+      <div class="footer-info">
+        <h3>Contact Info</h3>
+        <p><img src="./all_pictures/phone.png" />+852 5660 1234</p>
+        <p><img src="./all_pictures/email.png" />oasis@example.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="#"><img src="./all_pictures/facebookicon.png" alt="Facebook Icon" /></a>
+        <a href="#"><img src="./all_pictures/ins.png" alt="Instagram Icon" /></a>
+        <a href="#"><img src="./all_pictures/twitter.png" alt="Twitter Icon" /></a>
+      </div>
+    </footer>
+  </body>
+</html>

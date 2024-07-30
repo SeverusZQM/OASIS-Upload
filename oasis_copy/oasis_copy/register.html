@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oasis - Worker Bee Wellness</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;  
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+ 
+    @font-face
+        {
+           font-family: 'Bell MT';
+           src: url('./font/bell.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: 'Malgun Gothic Semilight';
+           src: url('./font/malgunsl.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: 'Century Gothic';
+           src: url('./font/GOTHIC.ttf')format('truetype');
+          }
+    @font-face
+        {
+           font-family: '等线 Light';
+           src: url('./font/Dengl.ttf')format('truetype');
+          }       
+     header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+      header .logo {
+        flex: 1;
+      }
+      header .avatar img {
+        height: 50px;
+        margin-left: 20px;
+      }
+      header .logo img {
+        height: 50px;
+      }
+      header nav {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-family: Malgun Gothic Semilight;
+      }
+      header nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      header nav ul li {
+        margin-right: 35px;
+      }
+
+      header nav ul li a {
+        text-decoration: none;
+        color: #2E8B57;
+      }
+        
+      header nav ul li .submenu {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        padding: 12px 16px;
+        }
+
+     header nav ul li:hover > .submenu {
+         display: block;
+        }
+        
+     header nav ul li .submenu li {
+         margin-bottom: 10px;
+        }
+        
+     header nav ul li .submenu li a {
+         display: block;
+         text-decoration: none;
+         color: #2E8B57;
+         font-weight: normal; 
+        }
+
+     header nav ul li .submenu li a:hover {
+         font-weight: bold; 
+        }
+
+      header .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      header .search-bar input {
+        padding: 5px;
+      }
+
+      header .search-bar img {
+        margin-left: 10px;
+        height: 20px;
+      }
+        
+        
+     .container {
+            width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            border-color: aqua
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 60px;
+            
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 30px;
+            font-weight: 100
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 3px;
+            margin-top: 5px;
+            font-size: 17px
+        }
+        
+        input[type=text1], input[type=password],input[type=email]{
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 13px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 50%;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }    
+    
+.custom-avatar {
+  text-align: center;
+  width: 400px;
+  margin: auto;
+}
+
+.avatar-display {
+  position:relative;
+  margin-left: 20px;
+  width: 150px;
+  height: 150px; 
+}
+        .avatar-display img{
+         margin-left: 70%;   
+        }      
+
+#background-image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+        #avatar-image {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 30px;
+  left: 15px;  
+        }
+
+#avatar-image {
+  z-index: 10;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-around; 
+  margin-top: 5px; 
+}
+
+.selector {
+  flex: 1; 
+}
+      
+#register-form input, #register-form button {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+#register-form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 40%;  
+} 
+        
+        
+        
+        
+        
+     footer {
+        background-color: #eee;
+        display: flex;
+        padding: 20px;
+        margin-top: 70px;
+        margin-bottom: auto;
+        flex-grow: 1;
+      }
+      .footer-logo img {
+        height: 45px;
+      }
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 50px;
+      }
+      .footer-info h3,
+      .footer-info p {
+        margin: 0;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+      }
+      .footer-info p img {
+        width: 20px;
+        margin-right: 5px;
+      }
+      .footer-links {
+        display: flex;
+        align-items: flex-end;
+      }
+      .footer-links a {
+        margin: 0 10px;
+      }
+
+      footer .footer-links img {
+        width: 20px;
+        height: 20px;
+      }
+        
+        
+    </style>
+  </head>
+    
+  <body>
+    <header>
+      <div class="logo">
+        <img src="LOGO.png" alt="Oasis Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li>
+              <a href="#">Categories&nbsp;&#9660;</a>
+               <ul class="submenu">
+                 <li><a href="food.html">Diet&nbsp;&amp;&nbsp;Health </a></li>
+                 <li><a href="exercise.html">Exercise</a></li>
+                 <li><a href="mental.html">Mental</a></li>
+               </ul>
+          </li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Consult</a></li>
+        </ul>
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <img src="SEARCH.png" alt="Search Icon" />
+        </div>
+      </nav>
+      <div class="avatar">
+        <a href="login.html">
+          <img src="AVATAR.png" alt="Oasis Avatar" />
+        </a>
+      </div>
+    </header>
+  
+      
+      
+      
+    <div class="custom-avatar">
+        <h2>—— Register Now ——</h2>
+    
+     <div class="avatar-display">
+    <img id="background-image" src="./all_pictures/register/bg1.png" alt="Background"
+    >
+    <img id="avatar-image" src="./all_pictures/register/avatar1.png" alt="Avatar">
+        </div>
+  <div class="selectors">
+    <div class="selector">
+      <label for="background-select">Choose a background:</label>
+      <select id="background-select" onchange="updateAvatar()">
+    <option value="./all_pictures/register/bg1.png">Sunrise</option>
+    <option value="./all_pictures/register/bg2.png">Light Green</option>
+    <option value="./all_pictures/register/bg3.png">Gradient Sky</option>
+    <option value="./all_pictures/register/bg4.png">Purple Fade</option>  
+    <option value="./all_pictures/register/bg5.png">Plain White</option>  
+    <option value="./all_pictures/register/bg6.png">Sunset</option>  
+    <option value="./all_pictures/register/bg7.png">Peach Glow</option>  
+    <option value="./all_pictures/register/bg8.png">Mint Green</option>  
+    <option value="./all_pictures/register/bg9.png">Soft Yellow</option>  
+    <option value="./all_pictures/register/bg10.png">Deep Purple</option>  
+    <option value="./all_pictures/register/bg11.png">Turquoise</option>
+    <option value="./all_pictures/register/bg12.png">Ice Blue</option> 
+      </select>
+    </div>
+    <div class="selector">
+      <label for="avatar-select">Choose an avatar:</label>
+      <select id="avatar-select" onchange="updateAvatar()">
+    <option value="./all_pictures/register/avatar1.png">Palm Tree</option>
+    <option value="./all_pictures/register/avatar2.png">Nightflower</option>
+    <option value="./all_pictures/register/avatar3.png">Sunflower</option>
+    <option value="./all_pictures/register/avatar4.png">Cactus Bloom</option>  
+    <option value="./all_pictures/register/avatar5.png">JungleCactus</option>  
+    <option value="./all_pictures/register/avatar6.png"> Rose Pot</option>  
+    <option value="./all_pictures/register/avatar7.png">Bamboo</option>  
+    <option value="./all_pictures/register/avatar8.png">Seedling</option>  
+    <option value="./all_pictures/register/avatar9.png">Coconut</option>  
+    <option value="./all_pictures/register/avatar10.png">Seagull</option>
+      <option value="./all_pictures/register/avatar11.png">Cactus</option>
+    <option value="./all_pictures/register/avatar12.png">Sun</option>
+    <option value="./all_pictures/register/avatar13.png">Pineapple</option>
+    <option value="./all_pictures/register/avatar14.png">Pear</option>  
+    <option value="./all_pictures/register/avatar15.png">Strawberry</option>  
+    <option value="./all_pictures/register/avatar16.png">Lemon</option> 
+      </select>
+    </div>
+  </div>
+  <form id="register-form">
+    <label for="username">User name</label>
+      <input type="text1" id="username" name="username" placeholder="(4-16 characters)" pattern=".{4,16}" required>
+    <label for="email">Email</label>  
+    <input type="email" id="email" name="email" placeholder="Please use correct address" required>
+    <label for="userpwd">Password</label>  
+    <input type="password" id="password" name="password" placeholder=" (More than 6 characters)" pattern=".{6,}" required>
+    <button type="submit">Register</button>
+  </form>
+        
+        
+</div>
+
+    <footer>
+      <div class="footer-logo">
+        <img src="LOGO.png" alt="Oasis Logo" />
+        <p style="font-size: 20px; font-family: Century Gothic">One-stop-shop butler for worker bee wellness.</p>
+      </div>
+      <div style="flex: 1; text-align: center; margin-top: 110px">
+        ©️2024 Oasis All rights reserved
+      </div>
+      <div class="footer-info">
+        <h3>Quick Links</h3>
+        <a href="#"><p>About Us</p></a>
+        <a href="#"><p>Categories</p></a>
+      </div>
+      <div class="footer-info">
+        <h3>Contact Info</h3>
+        <p><img src="phone.png" />+852 5660 1234</p>
+        <p><img src="email.png" />oasis@example.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="#"><img src="facebookicon.png" alt="Facebook Icon" /></a>
+        <a href="#"><img src="ins.png" alt="Instagram Icon" /></a>
+        <a href="#"><img src="twitter.png" alt="Twitter Icon" /></a>
+      </div>
+    </footer>
+<script src="script.js"></script>
+  </body>
+</html>
